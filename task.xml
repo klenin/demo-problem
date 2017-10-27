@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATS version="1.10">
+<Problem title="Appropriate names" lang="en"
+  author="G.Korneev, A. Klenin" tlimit="1" mlimit="256" inputFile="input.txt" outputFile="output.txt">
+
+<Keyword code="alg.combinatorics" />
+
+<ProblemStatement>
+<p>
+  A company wants to name a new product. Marketing department determined, that
+  a name for a product is appropriate, if:
+</p>
+<ol>
+  <li>it consist of exactly $N$ small English letters;</li>
+  <li>it has alternating vowels and consonants;</li>
+  <li>it does not contain any of given $M$ offensive substrings.</li>
+</ol>
+<p>
+  Your program must calculate the number of possible appropriate names.
+  Note that English vowels are: 'a', 'e', 'i', 'o', 'u', 'y'.
+</p>
+</ProblemStatement>
+
+<InputFormat>
+<p>
+  First line of input file contains two integers $N M$~--- name length and number of offensive substrings.
+</p>
+<p>
+  Following $M$ lines contain offensive substrings $s_i$, one per line.
+</p>
+</InputFormat>
+
+<OutputFormat>
+<p>
+  Output file must contain a single integer~--- number of appropriate names.
+</p>
+</OutputFormat>
+
+<ProblemConstraints>
+<p>$1 \le N \le 15$, $0 \le M \le 10$, $length(s_i) \le N$.</p>
+</ProblemConstraints>
+
+<Sample rank="1-2"><SampleIn src="%0n.in"/><SampleOut src="%0n.out"/></Sample>
+
+<Solution src="sol_ask_brute.pp" name="sol" />
+
+<Import guid="std.nums" type="checker" />
+<Test rank="1-10"><In src="%0n.in" /></Test>
+<Test rank="1-10"><Out use="sol" /></Test>
+
+<Testset name="sample" tests="1-2"/>
+<Testset name="official" tests="1-10"/>
+
+</Problem>
+</CATS>
