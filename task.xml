@@ -32,7 +32,7 @@
 
 <OutputFormat>
 <p>
-  Output file must contain a single integer~--- number of appropriate names.
+  Output file must contain a single integer~--- number of appropriate names modulo $10^9 + 7$.
 </p>
 </OutputFormat>
 
