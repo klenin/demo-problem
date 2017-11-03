@@ -8,7 +8,7 @@
 
 using namespace std;
 
-const bool DEBUG = true;
+const bool DEBUG = false;
 const int MAXN = 110;
 const int MAXM = 110;
 const int MAXL = 110;
