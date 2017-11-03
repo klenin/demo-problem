@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
   assert(c <= consonants.size());
   assert(v <= vowels.size());
   assert(l1 <= l2);
-  assert(l2 <= m);
+  assert(l2 <= n);
 
   bool is_vowel_first = (rnd.next(2) > 0);
   string w;

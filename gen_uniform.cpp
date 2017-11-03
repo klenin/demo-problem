@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
   assert(c <= consonants.size());
   assert(v <= vowels.size());
   assert(l1 <= l2);
-  assert(l2 <= m);
+  assert(l2 <= n);
 
   cout << n << " " << m << endl;
   for (int i = 0; i < m; i++) {
