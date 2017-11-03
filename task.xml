@@ -43,7 +43,7 @@
 <Sample rank="1-2"><SampleIn src="%0n.in"/><SampleOut src="%0n.out"/></Sample>
 
 <Solution src="sol_ask_brute.pp" name="sol_brute" />
-<Solution src="sol_it.cpp" name="sol" />
+<Solution src="sol_it.cpp" name="sol" de_code="102" />
 
 <Import guid="std.nums" type="checker" />
 <Test rank="1-10"><In src="%0n.in" /><Out use="sol_brute" /></Test>
