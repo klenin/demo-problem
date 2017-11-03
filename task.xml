@@ -37,7 +37,7 @@
 </OutputFormat>
 
 <ProblemConstraints>
-<p>$1 \le N \le 15$, $0 \le M \le 10$, $length(s_i) \le N$.</p>
+<p>$1 \le N \le 50$, $0 \le M \le 50$, $length(s_i) \le N$.</p>
 </ProblemConstraints>
 
 <Sample rank="1-2"><SampleIn src="%0n.in"/><SampleOut src="%0n.out"/></Sample>
