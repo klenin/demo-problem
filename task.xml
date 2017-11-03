@@ -45,12 +45,36 @@
 <Solution src="sol_ask_brute.pp" name="sol_brute" />
 <Solution src="sol_it.cpp" name="sol" de_code="102" />
 
+<Module src="testlib.h" type="generator" de_code="1" />
+<Generator name="gen_uniform" src="gen_uniform.cpp" outputFile="*STDIN" de_code="102"/>
+<Generator name="gen_substrings" src="gen_substrings.cpp" outputFile="*STDIN" de_code="102"/>
+
 <Import guid="std.nums" type="checker" />
-<Test rank="1-10"><In src="%0n.in" /><Out use="sol_brute" /></Test>
-<Test rank="11-15"><In src="%0n.in" /><Out use="sol" /></Test>
+<Test rank="1-10"><In src="%0n.in" /></Test>
+<Test rank="11-18"><In src="%0n.in" /></Test>
+<Test rank="19"><In use="gen_uniform"    param="4 3 2 3 1 1"/></Test>
+<Test rank="20"><In use="gen_uniform"    param="4 4 2 3 2 2"/></Test>
+<Test rank="21"><In use="gen_uniform"    param="4 50 2 3 20 6"/></Test>
+<Test rank="22"><In use="gen_uniform"    param="5 3 2 5 2 2"/></Test>
+<Test rank="23"><In use="gen_uniform"    param="6 50 1 6 2 2"/></Test>
+<Test rank="24"><In use="gen_uniform"    param="6 50 2 5 20 6"/></Test>
+<Test rank="25"><In use="gen_uniform"    param="10 50 1 10 3 3"/></Test>
+<Test rank="26"><In use="gen_uniform"    param="10 50 5 5 3 3"/></Test>
+<Test rank="27"><In use="gen_substrings" param="10 50 3 5 20 6"/></Test>
+<Test rank="28"><In use="gen_uniform"    param="49 50 5 10 4 1"/></Test>
+<Test rank="29"><In use="gen_uniform"    param="50 49 50 50 2 2"/></Test>
+<Test rank="30"><In use="gen_uniform"    param="50 50 1 50 2 2"/></Test>
+<Test rank="31"><In use="gen_substrings" param="50 50 1 10 2 2"/></Test>
+<Test rank="32"><In use="gen_uniform"    param="50 50 1 50 3 3"/></Test>
+<Test rank="33"><In use="gen_substrings" param="50 50 10 20 3 3"/></Test>
+<Test rank="34"><In use="gen_uniform"    param="50 50 20 30 3 3"/></Test>
+<Test rank="35"><In use="gen_uniform"    param="50 50 50 50 3 3"/></Test>
+
+<Test rank="1-10"><Out use="sol_brute" /></Test>
+<Test rank="11-35"><Out use="sol" /></Test>
 
 <Testset name="sample" tests="1-2"/>
-<Testset name="official" tests="1-15"/>
+<Testset name="official" tests="1-35"/>
 
 </Problem>
 </CATS>
