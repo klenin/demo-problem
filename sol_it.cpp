@@ -34,9 +34,9 @@ pair<int, int> p[MAXM][MAXL + 1][26];
 
 void Update(int i, int j, char ch, int i1, int j1) {
   int ch1 = ch - 'a';
-  if (j1 > p[i][j][ch].second) {
-    p[i][j][ch].first = i1;
-    p[i][j][ch].second = j1;
+  if (j1 > p[i][j][ch1].second) {
+    p[i][j][ch1].first = i1;
+    p[i][j][ch1].second = j1;
   }
 }
 
@@ -82,29 +82,37 @@ int main() {
   }
 
   for (int i = 0; i < m; i++) {
+    if (w[i] == "*") continue;
+    Update(0, 0, w[i][0], i, 1);
     for (int i1 = 0; i1 < m; i1++) {
       set<int> valid_starts;
       for (int j = 0; j < w[i1].length(); j++) {
-        valid_starts[j].insert(j);
+        valid_starts.insert(j);
       }
       for (int j = 0; j < w[i].length(); j++) {
         set<int> old_valid_starts = valid_starts;
         for (int start: old_valid_starts) {
-          if (start + j < w[i1].length() && w[i1][start + j] == w[i][j]) {
-            if (j + 1 < w[i].length()) {
-              Update(i1, start + j + 1, w[i][j + 1], i, j + 2);
-            }
-          } else {
-            valid_starts.remove(start);
+          Update(i1, start + j, w[i][j], i, j + 1);
+          if (!(start + j < w[i1].length() && w[i1][start + j] == w[i][j])) {
+            valid_starts.erase(start);
           }
         }
+        if (valid_starts.empty()) break;
       }
     }
   }
 
   if (DEBUG) {
-    for (i = 0; i < m; i++) {
-      for (j = 0; j <
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j <= w[i].length(); j++) {
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+          pair<int, int> q = p[i][j][ch-'a'];
+          if (q == make_pair(0, 0)) continue;
+          cout << w[i].substr(0, j) << " + " << ch << ": "
+               << w[q.first].substr(0, q.second) << " w[" << q.first << "]"
+               << endl;
+        }
+      }
     }
   }
 
@@ -115,12 +123,11 @@ int main() {
     for (int i = 0; i < n; i++) {
       bool vowel = ((i%2) == 0);
       if (!is_vowel_first) vowel = !vowel;
-      const set<string> &chars = vowel ? vowels : consonants;
+      const set<char> &chars = vowel ? vowels : consonants;
       for (int j = 0; j < m; j++) {
-        for (int k = 0; k <= w[j].length(); k++) {
+        for (int k = 0; k < w[j].length(); k++) {
           if (d[i][j][k] == 0) continue;
           for (char ch: chars) {
-            if (k == w[j].length()-1 && ch == w[j][k]) continue;
             int ch1 = ch - 'a';
             int j1 = p[j][k][ch1].first;
             int k1 = p[j][k][ch1].second;
@@ -130,7 +137,7 @@ int main() {
       }
     }
     for (int j = 0; j < m; j++) {
-      for (int k = 0; k <= w[j].length(); k++) {
+      for (int k = 0; k < w[j].length(); k++) {
         ans = (ans + d[n][j][k]) % MODULO;
       }
     }

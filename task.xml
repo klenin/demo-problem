@@ -45,11 +45,11 @@
 <Solution src="sol_ask_brute.pp" name="sol" />
 
 <Import guid="std.nums" type="checker" />
-<Test rank="1-10"><In src="%0n.in" /></Test>
-<Test rank="1-10"><Out use="sol" /></Test>
+<Test rank="1-15"><In src="%0n.in" /></Test>
+<Test rank="1-15"><Out use="sol" /></Test>
 
 <Testset name="sample" tests="1-2"/>
-<Testset name="official" tests="1-10"/>
+<Testset name="official" tests="1-15"/>
 
 </Problem>
 </CATS>
