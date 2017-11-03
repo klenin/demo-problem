@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CATS version="1.10">
 <Problem title="Appropriate names" lang="en"
-  author="G.Korneev, A. Klenin" tlimit="10" mlimit="256" inputFile="input.txt" outputFile="output.txt">
+  author="G.Korneev, A. Klenin" tlimit="1" mlimit="256" inputFile="input.txt" outputFile="output.txt">
 
 <Keyword code="alg.method.dyn" />
 
@@ -42,14 +42,15 @@
 
 <Sample rank="1-2"><SampleIn src="%0n.in"/><SampleOut src="%0n.out"/></Sample>
 
-<Solution src="sol_ask_brute.pp" name="sol" />
+<Solution src="sol_ask_brute.pp" name="sol_brute" />
+<Solution src="sol_it.cpp" name="sol" />
 
 <Import guid="std.nums" type="checker" />
-<Test rank="1-14"><In src="%0n.in" /></Test>
-<Test rank="1-14"><Out use="sol" /></Test>
+<Test rank="1-10"><In src="%0n.in" /><Out use="sol_brute" /></Test>
+<Test rank="11-15"><In src="%0n.in" /><Out use="sol" /></Test>
 
 <Testset name="sample" tests="1-2"/>
-<Testset name="official" tests="1-14"/>
+<Testset name="official" tests="1-15"/>
 
 </Problem>
 </CATS>
