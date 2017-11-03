@@ -61,6 +61,7 @@ int main() {
     bool keep = true;
     for (int j = 0; j < m; j++) {
       if (i == j) continue;
+      if (a[i] == a[j] && i > j) continue;
       if (a[i].find(a[j]) != string::npos) {
         keep = false;
         break;
